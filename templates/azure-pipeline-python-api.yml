@@ -1,0 +1,82 @@
+trigger:
+  branches:
+    include:
+      - main
+      - feature/*
+
+pr:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  pythonVersion: '3.11'
+
+steps:
+  - checkout: self
+    clean: true
+
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '$(pythonVersion)'
+
+  - script: |
+      python -m pip install --upgrade pip
+      pip install -r requirements.txt
+      if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
+    displayName: Install dependencies
+
+  - script: mkdir -p validation_results
+    displayName: Create evidence folder
+
+  - script: python -m ruff format --check ./src ./tests
+    displayName: Ruff formatting check
+
+  - script: python -m ruff check ./src ./tests
+    displayName: Ruff lint check
+
+  - script: python -m detect_secrets scan > validation_results/detect-secrets-report.json
+    displayName: Secret scan
+
+  - script: python -m bandit -r src -ll -f json -o validation_results/bandit-report.json
+    displayName: Bandit static security scan
+
+  - script: |
+      python -m pytest -v \
+        --cov=src \
+        --cov-report=term-missing \
+        --cov-report=xml:coverage.xml \
+        --junitxml=test-results.xml
+    displayName: Pytest with coverage
+
+
+  # Optional SonarQube/SonarCloud analysis. Configure SONAR_HOST_URL and SONAR_TOKEN as secret pipeline variables.
+  - script: |
+      if [ -n "$(SONAR_HOST_URL)" ] && [ -n "$(SONAR_TOKEN)" ]; then
+        curl -L --fail -o sonar-scanner.zip https://github.com/SonarSource/sonar-scanner-cli/releases/download/8.1.0.6389/sonar-scanner-cli-8.1.0.6389-linux-x64.zip
+        unzip -oq sonar-scanner.zip -d .sonar
+        .sonar/sonar-scanner-8.1.0.6389-linux-x64/bin/sonar-scanner           -Dsonar.host.url=$(SONAR_HOST_URL)           -Dsonar.token=$(SONAR_TOKEN)           -Dsonar.projectKey=$(Build.Repository.Name)           -Dsonar.qualitygate.wait=true           -Dsonar.qualitygate.timeout=300
+      else
+        echo "Skipping SonarQube scan because SONAR_HOST_URL or SONAR_TOKEN is not configured."
+      fi
+    displayName: SonarQube scan and quality gate
+    condition: succeededOrFailed()
+
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: JUnit
+      testResultsFiles: test-results.xml
+      failTaskOnFailedTests: true
+    condition: succeededOrFailed()
+
+  - task: PublishCodeCoverageResults@2
+    inputs:
+      summaryFileLocation: coverage.xml
+    condition: succeededOrFailed()
+
+  - publish: validation_results
+    artifact: validation-evidence
+    condition: succeededOrFailed()

@@ -1,0 +1,9 @@
+repo:
+
+/mnt/c/Users/AnubhaAnubha/OneDrive - Pearce Services, LLC/onedrive_ubuntu/project/gis-key-detection-func
+
+
+
+conda activate aegisflow
+pip install -r requirements.txt
+python -m streamlit run app.py

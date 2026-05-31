@@ -1,282 +1,160 @@
-# 🛡️ AegisFlow: DevSecOps Pipeline Orchestrator Agent
+# AegisFlow: DevSecOps Pipeline Orchestrator Agent
 
-> **Agentic DevSecOps cockpit for Azure Function repositories** — local repo inspection, PR validation readiness, CI/CD evidence, SonarQube quality gates, AI explanations, approved fix plans, and downloadable evidence packs.
+## v29 Dashboard tab layout update
 
-<p align="center">
-  <img src="docs/assets/aegisflow_system_architecture.png" alt="AegisFlow Architecture" width="900"/>
-</p>
+This version keeps the v28 evidence cockpit and changes the dashboard navigation so tabs wrap into two lines instead of using a horizontal scrollbar.
 
----
-
-## 🎬 Demo & Live App
-
-[![Watch Demo](https://img.shields.io/badge/▶%20WATCH%20DEMO-YouTube-red?style=for-the-badge)](https://youtu.be/l_R8OV8VF8g)
-[![Try Live App](https://img.shields.io/badge/🤖%20TRY%20LIVE%20APP-HuggingFace%20Space-blue?style=for-the-badge)](https://huggingface.co/spaces/AnubhaParashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent)
-[![Evidence Pack](https://img.shields.io/badge/📦%20DOWNLOADABLE-Evidence%20Pack-green?style=for-the-badge)](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/releases)
-
-- 🎥 **Video walkthrough:** [Watch AegisFlow demo on YouTube](https://youtu.be/l_R8OV8VF8g)
-- 🚀 **Live interactive demo:** [Try AegisFlow on Hugging Face Spaces](https://huggingface.co/spaces/AnubhaParashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent)
-- 📦 **Latest release package:** [Download from GitHub Releases](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/releases)
-
----
-
-## 📚 Wiki Navigation
-
-### Architecture & Product Design
-
-- 🏠 [Wiki Home](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki)
-- 🏗️ [Architecture — AegisFlow DevSecOps Pipeline Orchestrator Agent](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki/Architecture-AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent)
-- 📘 [Complete Technical Specification](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki/Complete-Technical-Specification-AegisFlow)
-- 🔁 [DevSecOps CI/CD Pipeline Mapping](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki/DevSecOps-CICD-Pipeline-Mapping)
-- 🤖 [Agentic Workflow and AI Fix Plan](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki/Agentic-Workflow-and-AI-Fix-Plan)
-
-### Functionality Reference
-
-- 🧭 [Feature Reference](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki/Feature-Reference)
-- ✅ [Acceptance Criteria Mapping](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki/Acceptance-Criteria-Mapping)
-- 📦 [Evidence Pack and Reporting](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki/Evidence-Pack-and-Reporting)
-- 🔐 [Security and Governance](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki/Security-and-Governance)
-
-### Quick Links
-
-- 🚀 [Live Hugging Face App](https://huggingface.co/spaces/AnubhaParashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent)
-- 🎥 [YouTube Demo](https://youtu.be/l_R8OV8VF8g)
-- 📦 [GitHub Releases / Evidence Pack](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/releases)
-- 📁 [Source Code](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent) — `app.py`, `agent.py`, `templates/`, `docs/`
-- 🧪 Validation: Ruff, Pytest, Bandit, detect-secrets, Hadolint, SonarScanner
-- ☁️ Cloud: Azure DevOps, Azure Repos, Azure Function App, SonarQube/SonarCloud
-- 🐞 [Issues](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/issues)
-- 🔀 [Pull Requests](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/pulls)
-
----
-
-## 🚀 About This Project
-
-**AegisFlow** is a working MVP / product prototype for automating DevSecOps readiness of Python Azure Function repositories.
-
-It takes a **local repository path**, understands the Git repo, checks whether the repo matches enterprise pipeline expectations, runs validations, creates missing DevSecOps files, explains failures, proposes safe fixes, and produces a review-ready evidence pack.
-
-It is designed for teams that run many Azure DevOps pipelines and need a self-service way to answer:
-
-- Is this repository structurally ready for the central pipeline template?
-- Are unit tests, coverage, linting, and security checks passing?
-- Is SonarQube configured and able to run?
-- What exactly failed, why did it fail, and who should fix it?
-- Can an approved patch be safely applied and revalidated?
-- Is the PR ready for human review and merge?
-
----
-
-## ✨ Key Capabilities
-
-| Capability | What AegisFlow Does |
-|---|---|
-| **Repo Preflight** | Detects Git root, branch, remote origin, provider, changed files, project type, source/test/config inventory. |
-| **Acceptance Criteria Cockpit** | Converts user-story checklist into pass/fail/partial/manual status. |
-| **DevSecOps File Generation** | Generates or validates `azure-pipelines.yml`, `azure-function.config.yml`, `sonar-project.properties`, `pytest.ini`, `.coveragerc`, `.gitignore`, and `requirements-dev.txt`. |
-| **Quality Gates** | Runs Python compile, Ruff format, Ruff lint, Hadolint Dockerfile lint, and code-quality checks. |
-| **Security Gates** | Runs lightweight secret scan, `detect-secrets`, and Bandit static security analysis. |
-| **Unit Testing & Coverage** | Runs Pytest with `coverage.xml` and `test-results.xml`; shows Azure DevOps-style coverage cards. |
-| **SonarQube/SonarCloud** | Runs scanner when `SONAR_HOST_URL` and `SONAR_TOKEN` are provided; supports quality-gate wait. |
-| **Evidence Pack** | Creates downloadable ZIP containing Markdown, JSON, coverage XML, test XML, logs, Sonar output, and pipeline evidence. |
-| **AI Error Intelligence** | Explains failures, severity, probable owner, and common fixes. |
-| **AI Fix Plan** | Shows exact diffs first, waits for approval, applies safe patches, and reruns affected validation. |
-| **Aegis Chat** | Lets users ask questions about the current run, failures, PR readiness, and fixes. |
-| **Git Automation** | Can create/switch branch, commit, push, and prepare PR only after repository confirmation and safety checks. |
-| **Governance Decision Support** | Shows `ready`, `conditional_review`, or `blocked` without falsely approving production/security/compliance. |
-
----
-
-## 🏗️ Architecture Overview
-
-<p align="center">
-  <img src="docs/assets/aegisflow_cicd_flow.png" alt="AegisFlow CI/CD Flow" width="900"/>
-</p>
-
-AegisFlow is intentionally **local-first** and **human-in-the-loop**:
-
-```mermaid
-flowchart LR
-    U[Developer / Reviewer] --> UI[AegisFlow Streamlit UI]
-    UI --> AG[AegisFlow Orchestrator Agent]
-    AG --> R[Local Git Repository]
-    AG --> V[Validation Engine]
-    V --> Q[Ruff / Pytest / Bandit / Secrets / Hadolint / Sonar]
-    Q --> FI[Failure Intelligence]
-    FI --> FP[AI Fix Plan]
-    FP --> H[Human Approval]
-    H --> RR[Rerun Affected Validation]
-    AG --> E[Evidence Pack]
-    E --> PR[PR Comment + Governance Summary]
-```
-
----
-
-## 🧩 Dashboard Modules
-
-AegisFlow provides the following dashboard tabs:
-
-1. **Repo Preflight** — repository identity, branch, remote, changed files, file inventory.
-2. **Acceptance Criteria** — task checklist mapped to pass/fail/manual/cloud-only status.
-3. **Live Progress** — CI/CD execution timeline with heartbeat updates for long-running tasks.
-4. **Report & Downloads** — evidence pack, coverage cards, test summary, report previews.
-5. **AI Error Intelligence** — failure explanation, severity, owner, and suggested fixes.
-6. **AI Fix Plan** — review exact diffs, approve patch, apply, and rerun validation.
-7. **Aegis Chat** — ask questions about failures, PR readiness, Sonar, tests, Dockerfile, or evidence.
-8. **SonarQube** — scan status, skipped reason, quality-gate status, and scanner logs.
-9. **Governance** — release decision support and sign-off boundaries.
-10. **PR Comment** — copyable PR validation summary.
-11. **Industry Use Cases** — how the product applies across teams and sectors.
-
----
-
-## 📦 Evidence Output
-
-After a run, AegisFlow produces an evidence folder inside the target repo:
-
-```text
-orchestrator_reports/
-  devsecops_orchestration_report_<timestamp>.md
-  devsecops_orchestration_report_<timestamp>.json
-  aegisflow_evidence_pack_<timestamp>.zip
-  coverage.xml
-  test-results.xml
-  sonar-scanner-output.txt
-```
-
-The dashboard also previews:
-
-- Azure DevOps-style code coverage cards
-- test pass/fail counts
-- validation event table
-- Markdown evidence report
-- JSON evidence report
-- raw `coverage.xml`
-- raw `test-results.xml`
-- Sonar output when configured
-
----
-
-## 🔐 Safety Model
-
-AegisFlow is agentic, but controlled.
-
-It can automatically fix safe issues such as formatting, linting, dependency installation, generated-test cleanup, and deterministic config updates. It does **not** silently change risky files.
-
-| Area | Behavior |
-|---|---|
-| Business logic | Review-only unless user approves exact diff. |
-| Secrets | Never generated or committed; recommends Key Vault / secure variables. |
-| Production deployment | Decision support only; final approval remains human-owned. |
-| Architecture/compliance | Evidence generation only; sign-off remains with responsible owner. |
-| Git push / PR | Blocked until repo identity is confirmed and safety gate passes. |
-
----
-
-## 🧪 Quick Start
-
-### 1. Create / activate environment
+Run:
 
 ```bash
-conda create -n aegisflow python=3.11 -y
 conda activate aegisflow
 pip install -r requirements.txt
-```
-
-### 2. Run dashboard
-
-```bash
 python -m streamlit run app.py
 ```
 
-### 3. Paste WSL repo path
+# AegisFlow: DevSecOps Pipeline Orchestrator Agent
+
+## v28 Evidence Cockpit
+
+This version improves the Report & Downloads experience:
+
+- Evidence ZIP, Markdown, and JSON downloads use robust file names and browser-safe download buttons.
+- The dashboard shows the evidence pack contents before download.
+- Coverage evidence is parsed from `coverage.xml` and shown as dashboard metrics/table.
+- Test evidence is parsed from `test-results.xml` and shown as dashboard metrics.
+- Validation results are shown in a table.
+- Markdown, JSON, coverage XML, test XML, and Sonar output previews are visible inside the dashboard.
+- If browser download does not start, the local file path and copy command are shown.
+
+Run:
+
+```bash
+conda activate aegisflow
+pip install -r requirements.txt
+python -m streamlit run app.py
+```
+
+# AegisFlow: DevSecOps Pipeline Orchestrator Agent
+
+Version v27 removes the internal release banner from the dashboard while keeping persistent run results across tabs/downloads.
+
+# AegisFlow: DevSecOps Pipeline Orchestrator Agent v23
+
+Agentic DevSecOps & MLOps Orchestrator.
+
+## What is new in v16
+
+- Long-running commands now show live heartbeat progress in the dashboard.
+- Pytest, Hadolint, Ollama install, and Ollama model downloads no longer appear frozen.
+- The Live Progress tab shows:
+  - current running step
+  - command being executed
+  - current step progress
+  - elapsed time
+  - latest log output tail
+  - execution timeline cards
+- Repo scanning still runs only when you click **Prefetch repo details** or **Run orchestrator**.
+
+## Run in WSL with Conda
+
+```bash
+cd aegisflow_ai_v16
+conda activate aegisflow
+python -m pip install -r requirements.txt
+python -m streamlit run app.py
+```
+
+Use a WSL path like:
 
 ```text
 /mnt/c/Users/AnubhaAnubha/OneDrive - Pearce Services, LLC/onedrive_ubuntu/project/gis-key-detection-func
 ```
 
-### 4. Prefetch repo details
+## Notes
 
-Click **Prefetch repo details**, confirm the Git repository, then click **Run orchestrator**.
+Ollama first-run setup is now built in. v16 checks whether Ollama is installed, starts the server, checks the local model cache, downloads the selected model if missing, shows live download progress/elapsed time, and skips the download on future runs when the model already exists locally.
 
----
+## Ollama/model bootstrap behavior
 
-## 🔎 SonarQube Setup
+When **Use local Ollama recommendation** is enabled, AegisFlow performs this sequence:
 
-AegisFlow can run SonarQube/SonarCloud if the following are configured:
+```text
+Check Ollama CLI
+→ install Ollama in WSL/Linux if missing
+→ start `ollama serve` if the server is not running
+→ check local model cache with `/api/tags` and `ollama list`
+→ if the selected model is missing, run `ollama pull <model>`
+→ show live progress and latest output while the model downloads
+→ on future runs, detect the local model and skip download
+```
+
+The first model download can take several minutes because models are large. The dashboard keeps updating so clients can see that the setup is still progressing.
+
+
+## v16 fixes
+- Fixed missing FailureIntelligenceEngine crash.
+- Adds deterministic failure analysis, log summary, governance decision support, and PR comment generation.
+- Installs repo requirements.txt and requirements-dev.txt when install/update tools is enabled.
+- Runs validations with PYTHONPATH including repo root and src.
+- Keeps Ollama/model bootstrap with live progress.
+
+
+## v19 AI Fix Plan
+
+AegisFlow now supports a safer auto-fix workflow: generate a fix plan, review exact file diffs, approve, apply patch, rerun affected validation, and compare before/after results. Dockerfile/Hadolint fixes are deterministic and approval-gated.
+
+
+## v19 updates
+
+- Adds an **Aegis Chat** tab for questions about the last run, failures, fixes, and approvals.
+- Adds approval-based Dockerfile fix proposals for Hadolint rules such as DL3008/DL3013 when exact package versions cannot be safely inferred.
+- Shows exact diffs before applying any patch.
+- Requires explicit approval before applying patches and reruns affected validation afterward.
+- Keeps version pinning / policy exceptions visible instead of silently editing risky files.
+
+
+## v21 update
+
+Aegis Chat now uses the Ollama HTTP API (`/api/generate`) instead of the interactive `ollama run` command. This prevents terminal spinner/ANSI control sequences from appearing as garbled text in the dashboard. If Ollama is unavailable, the chat falls back to deterministic run-context answers.
+
+
+## v22 safety fix: generated folder protection
+
+AegisFlow now treats `.aegisflow_backups/` and `orchestrator_reports/` as protected generated folders. It will not scan, lint, patch, back up recursively, or commit these folders. This prevents nested backup paths such as `.aegisflow_backups/.../.aegisflow_backups/.../infra/docker/Dockerfile` from being incorrectly treated as real source files.
+
+Recommended one-time cleanup in existing repositories:
+
+```bash
+rm -rf .aegisflow_backups
+git rm -r --cached .aegisflow_backups orchestrator_reports 2>/dev/null || true
+```
+
+
+## v23 SonarQube / SonarCloud actual scan
+
+AegisFlow now supports actual SonarQube/SonarCloud analysis, not just Sonar readiness. Enable **Run SonarQube/SonarCloud scan with coverage** in the sidebar and provide:
 
 ```bash
 export SONAR_HOST_URL="https://your-sonarqube-server"
 export SONAR_TOKEN="your-token"
-export SONAR_PROJECT_KEY="gis-key-detection-func"
+export SONAR_PROJECT_KEY="your-project-key"   # optional; repo name is used if omitted
 ```
 
-Without these values, AegisFlow still generates `coverage.xml` and shows coverage locally, but Sonar upload and quality-gate checks are marked as skipped.
+The agent runs Pytest coverage first, creates `coverage.xml`, runs `sonar-scanner`, waits for the quality gate when enabled, and puts `validation_results/sonar-scanner-output.txt` into the evidence ZIP.
 
----
+## v26 update — Acceptance Criteria cockpit
 
-## ✅ Acceptance Criteria Coverage
+This version adds an **Acceptance Criteria** tab that shows the restructuring checklist and DevSecOps closure readiness as a visible pass/fail/manual-review table. It is designed for the user story requiring repo restructuring before connecting the central Azure DevOps pipeline template.
 
-AegisFlow explicitly checks the user-story acceptance criteria:
 
-- delete unwanted files
-- restructure `src/`, `tests/`, `src/conf/`
-- update import paths
-- check `parameters.yaml`
-- split production/dev requirements
-- update `.gitignore`
-- add pipeline/config/Sonar files
-- verify locally with dependencies, Ruff, Pytest, and coverage
-- mark cloud-only items honestly, such as Azure branch policies, Azure Function deployment, health checks, rollback, and Sonar server validation
+## v26 update
 
----
+- Keeps the last orchestrator run visible across Streamlit tab changes, download clicks, chat input, and normal UI reruns.
+- Adds a persistent Report & Downloads view restored from `st.session_state["last_report"]`.
+- Adds a clearer SonarQube tab explanation: Azure DevOps Code Coverage is `pytest -> coverage.xml -> PublishCodeCoverageResults`; SonarQube is separate and requires `SONAR_HOST_URL` and `SONAR_TOKEN`.
+- Adds persistent Live Progress replay from the saved event timeline.
 
-## 🧭 Current Status
 
-| Capability | Status |
-|---|---|
-| Local repo inspection | ✅ Implemented |
-| Acceptance criteria dashboard | ✅ Implemented |
-| Azure DevOps-style coverage view | ✅ Implemented |
-| Evidence ZIP + dashboard preview | ✅ Implemented |
-| SonarQube scan support | ✅ Implemented when credentials are present |
-| AI error explanation | ✅ Implemented |
-| AI fix plan with approval | ✅ Implemented |
-| Aegis Chat | ✅ Implemented |
-| Git branch/commit/push support | ✅ Implemented with safety confirmation |
-| Azure DevOps PR creation | ⚠️ Requires Azure DevOps PAT/config |
-| Production deployment validation | ⚠️ Requires Azure credentials and deployed endpoint |
-| Auto rollback | 🚧 Roadmap / pipeline-level implementation |
+## v30 - Azure DevOps-style coverage dashboard
 
----
-
-## 🏭 Industry Use Cases
-
-- Azure Function DevSecOps onboarding
-- PR validation readiness
-- CI/CD quality-gate cockpit
-- AI/ML API deployment validation
-- MLOps model-serving repo validation
-- security evidence generation
-- compliance/audit evidence packs
-- multi-team pipeline troubleshooting
-- developer self-service DevOps
-- release readiness decision support
-
----
-
-## 🛠️ Built With
-
-Python · Streamlit · Azure DevOps · Azure Functions · Pytest · Ruff · Bandit · detect-secrets · Hadolint · SonarQube/SonarCloud · Ollama · Graphviz · Git
-
-Maintained by **@dranubhaparashar**
-
-- 🚀 [Live App](https://huggingface.co/spaces/AnubhaParashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent)
-- 🎥 [Demo Video](https://youtu.be/l_R8OV8VF8g)
-- 📚 [Project Wiki](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki)
-
----
-
-## 📄 License
-
-Add your license here, for example: MIT / Apache-2.0 / Internal Enterprise Use.
+Adds a visual coverage cockpit inside Report & Downloads that renders coverage.xml with Azure DevOps-like cards: Information, Line coverage, Branch coverage, Method coverage, and per-file progress bars. This makes the coverage result visible inside AegisFlow without opening Azure DevOps.
