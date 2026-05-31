@@ -10,15 +10,13 @@
 
 ## 🎬 Demo & Live App
 
-> Replace these placeholders with your deployed app/video links after publishing.
+[![Watch Demo](https://img.shields.io/badge/▶%20WATCH%20DEMO-YouTube-red?style=for-the-badge)](https://youtu.be/l_R8OV8VF8g)
+[![Try Live App](https://img.shields.io/badge/🤖%20TRY%20LIVE%20APP-HuggingFace%20Space-blue?style=for-the-badge)](https://huggingface.co/spaces/AnubhaParashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent)
+[![Evidence Pack](https://img.shields.io/badge/📦%20DOWNLOADABLE-Evidence%20Pack-green?style=for-the-badge)](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/releases)
 
-[![Watch Demo](https://img.shields.io/badge/▶%20WATCH%20DEMO-YouTube-red?style=for-the-badge)](#)
-[![Try Live App](https://img.shields.io/badge/🤖%20TRY%20LIVE%20APP-Streamlit%20/%20HuggingFace-blue?style=for-the-badge)](#)
-[![Evidence Pack](https://img.shields.io/badge/📦%20DOWNLOADABLE-Evidence%20Pack-green?style=for-the-badge)](#)
-
-- 🎥 **Video walkthrough:** _add YouTube link_
-- 🚀 **Live interactive demo:** _add Streamlit/HuggingFace/Azure App link_
-- 📦 **Latest release package:** _attach AegisFlow ZIP / release artifact_
+- 🎥 **Video walkthrough:** [Watch AegisFlow demo on YouTube](https://youtu.be/l_R8OV8VF8g)
+- 🚀 **Live interactive demo:** [Try AegisFlow on Hugging Face Spaces](https://huggingface.co/spaces/AnubhaParashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent)
+- 📦 **Latest release package:** [Download from GitHub Releases](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/releases)
 
 ---
 
@@ -26,23 +24,29 @@
 
 ### Architecture & Product Design
 
-- 🏗️ [Architecture — AegisFlow DevSecOps Pipeline Orchestrator Agent](Architecture-AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent)
-- 📘 [Complete Technical Specification](Complete-Technical-Specification-AegisFlow)
-- 🔁 [DevSecOps CI/CD Pipeline Mapping](DevSecOps-CICD-Pipeline-Mapping)
-- 🤖 [Agentic Workflow and AI Fix Plan](Agentic-Workflow-and-AI-Fix-Plan)
+- 🏠 [Wiki Home](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki)
+- 🏗️ [Architecture — AegisFlow DevSecOps Pipeline Orchestrator Agent](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki/Architecture-AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent)
+- 📘 [Complete Technical Specification](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki/Complete-Technical-Specification-AegisFlow)
+- 🔁 [DevSecOps CI/CD Pipeline Mapping](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki/DevSecOps-CICD-Pipeline-Mapping)
+- 🤖 [Agentic Workflow and AI Fix Plan](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki/Agentic-Workflow-and-AI-Fix-Plan)
 
-## Functionality Reference
+### Functionality Reference
 
-- 🧭 [Feature Reference](Feature-Reference)
-- ✅ [Acceptance Criteria Mapping](Acceptance-Criteria-Mapping)
-- 📦 [Evidence Pack and Reporting](Evidence-Pack-and-Reporting)
-- 🔐 [Security and Governance](Security-and-Governance)
+- 🧭 [Feature Reference](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki/Feature-Reference)
+- ✅ [Acceptance Criteria Mapping](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki/Acceptance-Criteria-Mapping)
+- 📦 [Evidence Pack and Reporting](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki/Evidence-Pack-and-Reporting)
+- 🔐 [Security and Governance](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki/Security-and-Governance)
 
 ### Quick Links
 
-- 📁 Source Code: `app.py`, `agent.py`, `templates/`, `docs/`
+- 🚀 [Live Hugging Face App](https://huggingface.co/spaces/AnubhaParashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent)
+- 🎥 [YouTube Demo](https://youtu.be/l_R8OV8VF8g)
+- 📦 [GitHub Releases / Evidence Pack](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/releases)
+- 📁 [Source Code](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent) — `app.py`, `agent.py`, `templates/`, `docs/`
 - 🧪 Validation: Ruff, Pytest, Bandit, detect-secrets, Hadolint, SonarScanner
 - ☁️ Cloud: Azure DevOps, Azure Repos, Azure Function App, SonarQube/SonarCloud
+- 🐞 [Issues](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/issues)
+- 🔀 [Pull Requests](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/pulls)
 
 ---
 
@@ -266,6 +270,10 @@ AegisFlow explicitly checks the user-story acceptance criteria:
 Python · Streamlit · Azure DevOps · Azure Functions · Pytest · Ruff · Bandit · detect-secrets · Hadolint · SonarQube/SonarCloud · Ollama · Graphviz · Git
 
 Maintained by **@dranubhaparashar**
+
+- 🚀 [Live App](https://huggingface.co/spaces/AnubhaParashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent)
+- 🎥 [Demo Video](https://youtu.be/l_R8OV8VF8g)
+- 📚 [Project Wiki](https://github.com/dranubhaparashar/AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent/wiki)
 
 ---
 
