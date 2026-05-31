@@ -1,6 +1,10 @@
 # 🛡️ AegisFlow: DevSecOps Pipeline Orchestrator Agent
 
 > **Agentic DevSecOps cockpit for Azure Function and Python API repositories** — local repo inspection, PR validation readiness, CI/CD evidence, SonarQube quality gates, AI explanations, approved fix plans, Git automation, and downloadable evidence packs.
+>
+> <img width="2000" height="1020" alt="aegisflow_cicd_flow" src="https://github.com/user-attachments/assets/2b8fafc1-d1e5-42b3-8b2e-a7003e8b887b" />
+<img width="2000" height="1200" alt="aegisflow_system_architecture" src="https://github.com/user-attachments/assets/cf72a235-61ed-4e5c-86af-c72c9e70ca63" />
+
 
 ---
 
