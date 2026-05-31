@@ -26,17 +26,17 @@
 
 ### Architecture & Product Design
 
-- 🏗️ [Architecture — AegisFlow DevSecOps Pipeline Orchestrator Agent](wiki/Architecture-AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent.md)
-- 📘 [Complete Technical Specification](wiki/Complete-Technical-Specification-AegisFlow.md)
-- 🔁 [DevSecOps CI/CD Pipeline Mapping](wiki/DevSecOps-CICD-Pipeline-Mapping.md)
-- 🤖 [Agentic Workflow and AI Fix Plan](wiki/Agentic-Workflow-and-AI-Fix-Plan.md)
+- 🏗️ [Architecture — AegisFlow DevSecOps Pipeline Orchestrator Agent](Architecture-AegisFlow-DevSecOps-Pipeline-Orchestrator-Agent)
+- 📘 [Complete Technical Specification](Complete-Technical-Specification-AegisFlow)
+- 🔁 [DevSecOps CI/CD Pipeline Mapping](DevSecOps-CICD-Pipeline-Mapping)
+- 🤖 [Agentic Workflow and AI Fix Plan](Agentic-Workflow-and-AI-Fix-Plan)
 
-### Functionality Reference
+## Functionality Reference
 
-- 🧭 [Feature Reference](wiki/Feature-Reference.md)
-- ✅ [Acceptance Criteria Mapping](wiki/Acceptance-Criteria-Mapping.md)
-- 📦 [Evidence Pack and Reporting](wiki/Evidence-Pack-and-Reporting.md)
-- 🔐 [Security and Governance](wiki/Security-and-Governance.md)
+- 🧭 [Feature Reference](Feature-Reference)
+- ✅ [Acceptance Criteria Mapping](Acceptance-Criteria-Mapping)
+- 📦 [Evidence Pack and Reporting](Evidence-Pack-and-Reporting)
+- 🔐 [Security and Governance](Security-and-Governance)
 
 ### Quick Links
 
